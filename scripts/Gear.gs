@@ -10,7 +10,7 @@ function onOpen() {
   // of once per hour
   var documentProperties = PropertiesService.getDocumentProperties();
   var lastUpdatedFromApi = documentProperties.getProperty("lastUpdatedFromApi");
-  if (lastUpdatedFromApi == null || Date.now() - lastUpdatedFromApi > 3600000)
+  if (lastUpdatedFromApi === null || lastUpdatedFromApi === "" || Date.now() - lastUpdatedFromApi > 3600000)
   {
     documentProperties.setProperty("lastUpdatedFromApi", Date.now());
     documentProperties.setProperty("cachedApiData", JSON.stringify(fetchApiData()));
