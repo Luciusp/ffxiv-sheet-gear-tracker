@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <br>
+    <form id="myForm" onsubmit="event.preventDefault(); google.script.run.processRemovePlayer(this)">
+      Player: <br>
+      <select name="name">
+        <? for (var i = 0; i < data.length; i++) { ?>
+          <option value=<?= data[i] ?>><?= data[i] ?></option>
+        <? } ?>
+      </select>
+      <input type="submit" value="Submit">
+    </form><br>
+    <input type="button" value="Cancel" onclick="google.script.host.close()" />
+  </body>
+</html>

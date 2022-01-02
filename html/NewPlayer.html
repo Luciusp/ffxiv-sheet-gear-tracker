@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    Please fill in the form below.<br><br>
+    <form id="myForm" onsubmit="event.preventDefault(); google.script.run.processNewPlayer(this);">
+      Name:
+      <input type="text" name="playerName" required><br><br>
+      Server:
+      <input type="text" name="serverName" required><br><br>
+      Job:
+      <select name="job">
+        <? for (var i = 0; i < data.length; i++) { ?>
+          <option value=<?= data[i] ?>><?= data[i] ?></option>
+        <? } ?>
+      </select>
+      <br>
+      <input type="submit" value="Submit">
+    </form><br>
+    <input type="button" value="Cancel" onclick="google.script.host.close();" />
+  </body>
+</html>
